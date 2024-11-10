@@ -1,3 +1,7 @@
+/*
+Utility functions for saving the menu state to 
+and loading it from local storage.
+*/
 import { MenuItem } from '../types/menu';
 
 export const saveToStorage = (menu: MenuItem[]) => {
@@ -9,6 +13,7 @@ export const loadFromStorage = (): MenuItem[] | null => {
     return savedMenu ? JSON.parse(savedMenu) : null;
 };
 
+// Recursively add new item
 export const addItem = (menu: MenuItem[], parentId: string | null, newItem: MenuItem): MenuItem[] => {
     if (parentId === null) {
         return [...menu, newItem];
@@ -21,6 +26,7 @@ export const addItem = (menu: MenuItem[], parentId: string | null, newItem: Menu
     });
 };
 
+// Recursively rename item
 export const renameItem = (menu: MenuItem[], id: string, newName: string): MenuItem[] => {
     return menu.map(item => {
         if (item.id === id) {
@@ -30,6 +36,7 @@ export const renameItem = (menu: MenuItem[], id: string, newName: string): MenuI
     });
 };
 
+// Recursively delete item
 export const deleteItem = (menu: MenuItem[], id: string): MenuItem[] => {
     return menu
         .filter(item => item.id !== id)

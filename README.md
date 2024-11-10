@@ -1,6 +1,32 @@
-# Getting Started with Create React App
+# Infinite-Depth Nested Menu
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a React-based, infinite-depth nested menu application built with TypeScript. It provides an interactive interface for managing a hierarchical menu structure, allowing users to add, rename, delete, and organize nested items. The menu state is persisted using local storage to maintain the menu structure across sessions.
+
+## Features
+
+- **Infinite Nesting:** Create a menu with unlimited depth by adding nested submenus to any item.
+- **Context Menu:** Right-click on items to open a context menu with options to add, rename, and delete items.
+- **Renaming Mode:** Edit item names inline by selecting the "Rename" option from the context menu.
+- **Persistence:** The menu structure is saved in local storage, so changes remain across page reloads.
+- **Collapsible Items:** Expand or collapse menu items to organize the view.
+
+## Project Structure
+
+- **`Menu.tsx`** - The main component that renders the top-level menu items and manages the overall menu structure.
+- **`MenuItem.tsx`** - A recursive component that represents a single menu item with its nested children.
+- **`ContextMenu.tsx`** - A component for rendering the context menu with options like Add, Rename, and Delete.
+- **`menuStorage.ts`** - Utility functions for saving and loading the menu structure from local storage.
+- **`defaultData.ts`** - Provides a default menu structure when no saved data is available.
+
+## Getting Started
+
+### Prerequisites
+
+- **Node.js** - Ensure you have Node.js installed on your machine.
+- **npm or yarn** - You can use either npm or yarn as your package manager.
+
+## Installation
+### `npm install`
 
 ## Available Scripts
 
@@ -29,29 +55,15 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Usage
+## Basic Operations
+- Add a Submenu: Right-click on any item and select "Add" to create a new submenu under the selected item.
+- Rename an Item: Right-click on an item, choose "Rename," and the item's name will turn into an editable input field. Press "Enter" to save changes or "Escape" to cancel.
+- Delete an Item: Right-click on an item and select "Delete." This will remove the item along with any of its children.
+- Expand/Collapse Items: Click on an item to toggle its expanded state and view its children.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-## Project Structure
-src/
-├── components/
-│   ├── Menu.tsx
-│   └── MenuItem.tsx
-├── types/
-│   └── menu.d.ts
-├── utils/
-│   └── menuStorage.ts
-└── App.tsx
+## Context Menu Behavior
+The context menu provides an intuitive way to manage each menu item. To avoid accidental actions:
+- Closing Context Menu: Clicking outside the menu will close it, while the main menu remains open for easy navigation.
+- State Persistence
+The menu structure is saved automatically in the browser's local storage. Upon revisiting the app, the saved structure is loaded, providing a seamless experience across sessions.
